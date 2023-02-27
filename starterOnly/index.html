@@ -110,7 +110,7 @@
               </div>
               <div
                 class="formData"><br>
-                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity">
                 <span id="errorQuantity"></span>
               </div>
@@ -118,7 +118,6 @@
               <p class="text-label"> <br> A quel tournoi souhaitez-vous participer cette année ? <br></p>
               <div
                 class="formData">
-                <span id="errorLocation"></span>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -185,6 +184,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <br><span id="errorLocation"></span>
               </div>
 
               <div
@@ -193,7 +193,6 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
@@ -216,9 +215,9 @@
               />
             </form>
           </div>
-           <!-- partie message de confirmation - doit apparaitre
+           <!-- message de confirmation - doit apparaitre
           après l'envoi des infos -->
-          <div id="confirm-modal" class="content">
+          <div id="confirm-modal">
             <div class="modal-body">
               <p id="confirm-msg">
                 Merci ! Votre réservation a été reçue.

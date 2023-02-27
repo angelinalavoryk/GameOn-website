@@ -474,6 +474,10 @@ input[data-error]::after {
   display: none;
 }
 
+#confirm-modal{
+  display: none;
+}
+
 #btn-closed {
   background: #fe142f;
   display: block;
@@ -485,7 +489,6 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
-
 footer {
   padding-left: 2vw;
   padding-right: 2vw;

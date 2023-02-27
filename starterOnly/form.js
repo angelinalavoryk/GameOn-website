@@ -2,7 +2,6 @@
 const formValid = document.querySelector("#btn-submit");
 
 
-// const confirmationValidation = document.querySelector("#confirm-modal");
 
 // element pour l'envoi du formulaire 
 const form = document.querySelector('form[name="reserve"]');
@@ -14,7 +13,7 @@ form.addEventListener('submit', function (e) {
     validate();
   });
 
-// Fonction qui valide le champ de prénom
+// Fonction qui valide le champ "prénom"
 function validateFirstName() {
     const errorFirstName = document.querySelector("#errorFirst");
     const firstName = document.querySelector("#first");
@@ -23,7 +22,7 @@ function validateFirstName() {
         firstName.style.border = 'solid #279e7a 3px';
         return true; 
     } else {
-        errorFirstName.style.display = "inline";
+        // errorFirstName.style.display = "inline";
         errorFirstName.innerText = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
         errorFirstName.style.color = 'red';
         errorFirstName.style.fontSize = '0.8rem';
@@ -33,7 +32,7 @@ function validateFirstName() {
     };
   }
   
-// Fonction qui valide le champ de nom de famille
+// Fonction qui valide le champ "nom de famille"
   function validateLastName() {
     const errorLastName = document.querySelector("#errorLast");
     const lastName = document.querySelector("#last");
@@ -52,7 +51,7 @@ function validateFirstName() {
     };
   }
   
-// Fonction qui valide le champ email
+// Fonction qui valide le champ "email"
   function validateEmail() {
     const errorEmail = document.querySelector("#errorEmail");
     const email = document.querySelector("#email");
@@ -71,7 +70,7 @@ function validateFirstName() {
     };
   }
 
-  // Fonction qui valide le champ birthdate
+  // Fonction qui valide le champ "date de naissance"
   function validateBirthdate() {
     const errorBirthDate = document.querySelector("#errorBirthdate");
     const birthdate = document.querySelector("#birthdate");
@@ -91,7 +90,7 @@ function validateFirstName() {
       };
   }
 
-// Fonction qui valide le champ de concours
+// Fonction qui valide le champ "nombre de concours"
 function validateQuantity() {
     const errorQuantity = document.querySelector("#errorQuantity");
     const quantity = document.querySelector("#quantity");
@@ -103,7 +102,7 @@ function validateQuantity() {
     }
     else{
         errorQuantity.style.display = "inline";
-        errorQuantity.innerText = "Pour le nombre de concours, une valeur numérique entre 0 et 99 doit etre saisie.";
+        errorQuantity.innerText = "Une valeur numérique entre 0 et 99 doit etre saisie.";
         errorQuantity.style.color = 'red';
         errorQuantity.style.fontSize = '0.8rem';
         errorQuantity.style.marginTop = '10px';
@@ -112,11 +111,36 @@ function validateQuantity() {
     };
 }
 
-// function validateLocation(){
-//     const errorLocation = document.querySelector("#errorLocation");
-//     const location = document.getElementsByClassName(".location");
-// }
 
+// Fonction qui valide le champ "villes de tournoi"
+function validateLocation() {
+      const errorLocation = document.querySelector("#errorLocation");
+      const locationInputs = document.querySelectorAll('input[name="location"]');
+      let isChecked = false;
+      
+      for (const locationInput of locationInputs) {
+        if (locationInput.checked) {
+          isChecked = true;
+          break;
+        }
+      }
+      if (isChecked) {
+        errorLocation.innerText = '';
+        return true;
+      } else {
+        errorLocation.style.display = "inline";
+        errorLocation.innerText = 'Vous devez choisir une option. Veuillez sélectionner une ville';
+        errorLocation.style.color = 'red';
+        errorLocation.style.fontSize = '0.8rem';
+        errorLocation.style.marginTop = '10px';
+        locationInputs.style.border = 'solid red 2px';
+        return false;
+      };
+    }
+
+
+
+// Fonction qui valide le champ "conditions d'utilisations"
 function validateConditions(){
     const errorConditions = document.querySelector("#errorConditions");
     const conditions = document.querySelector("#checkbox1");
@@ -125,7 +149,7 @@ function validateConditions(){
         return true;
     }else {
         errorConditions.style.display = "inline";
-        errorConditions.innerText = "Vous devez accepter les termes et conditions.";
+        errorConditions.innerText = "Vous devez vérifier que vous acceptez les termes et conditions.";
         errorConditions.style.color = 'red';
         errorConditions.style.fontSize = '0.8rem';
         errorConditions.style.marginTop = '10px';
@@ -134,34 +158,9 @@ function validateConditions(){
 }
 
 
-
-//   function validateBirthdate() {
-//     if (!birthDate.value.match(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/)) {
-        
-
-//         errorBirthDate.style.display = 'none';
-//         birthDate.style.border = 'solid #279e7a 3px';
-//         console.log("2");
-//     } else {
-//         errorBirthDate.style.display = "inline";
-//         errorBirthDate.innerText = "Veuillez indiquer votre date de naissance.";
-//         errorBirthDate.style.color = 'red';
-//         errorBirthDate.style.fontSize = '0.8rem';
-//         errorBirthDate.style.marginTop = '10px';
-//         birthDate.style.border = 'solid red 2px';
-//         console.log("1");
-//     };
-//   }
-
-
-
-
-
-
-
-  
-
+// Fonction qui valide le formulaire et envoie le message de confirmation d'inscription
   function validate() {
+      const confirmationValidation = document.querySelector("#confirm-modal");
       const formValidate = [];
     
       formValidate.push(validateFirstName());
@@ -170,9 +169,11 @@ function validateConditions(){
       formValidate.push(validateBirthdate());
       formValidate.push(validateQuantity());
       formValidate.push(validateConditions());
+      formValidate.push(validateLocation());
 
-      if (!formValidate.includes(false)) {
+      if (formValidate.includes(true)) {
             form.style.display = 'none';
+            confirmationValidation.style.display = 'block';
       };
     }
 
