@@ -1,12 +1,7 @@
 // element correspondant au bouton 
 const formValid = document.querySelector("#btn-submit");
-
-
-
 // element pour l'envoi du formulaire 
 const form = document.querySelector('form[name="reserve"]');
-
-
 // Envoi du formulaire d'inscription
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -22,7 +17,7 @@ function validateFirstName() {
         firstName.style.border = 'solid #279e7a 3px';
         return true; 
     } else {
-        // errorFirstName.style.display = "inline";
+        errorFirstName.style.display = "inline";
         errorFirstName.innerText = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
         errorFirstName.style.color = 'red';
         errorFirstName.style.fontSize = '0.8rem';
@@ -55,7 +50,9 @@ function validateFirstName() {
   function validateEmail() {
     const errorEmail = document.querySelector("#errorEmail");
     const email = document.querySelector("#email");
-    if (/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email.value)) {
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (emailRegex.test(email.value)) {
         errorEmail.style.display = 'none';
         email.style.border = 'solid #279e7a 3px';
         return true;
@@ -75,6 +72,7 @@ function validateFirstName() {
     const errorBirthDate = document.querySelector("#errorBirthdate");
     const birthdate = document.querySelector("#birthdate");
     const birthdateRegex = /^(19|20)\d{2}-(0\d|1[0-2])-([0-2]\d|3[0-1])$/;
+
     if (birthdateRegex.test(birthdate.value)) {
         errorBirthDate.style.display = 'none';
         birthdate.style.border = 'solid #279e7a 3px';
