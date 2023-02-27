@@ -127,7 +127,7 @@ function validateLocation() {
         return true;
       } else {
         errorLocation.style.display = "inline";
-        errorLocation.innerText = 'Vous devez choisir une option. Veuillez sélectionner une ville';
+        errorLocation.innerText = 'Vous devez choisir une option. Veuillez sélectionner une ville.';
         errorLocation.style.color = 'red';
         errorLocation.style.fontSize = '0.8rem';
         errorLocation.style.marginTop = '10px';
@@ -147,7 +147,7 @@ function validateConditions(){
         return true;
     }else {
         errorConditions.style.display = "inline";
-        errorConditions.innerText = "Vous devez vérifier que vous acceptez les termes et conditions.";
+        errorConditions.innerText = "Vous devez vérifier que vous acceptez les conditions d'utilisations.";
         errorConditions.style.color = 'red';
         errorConditions.style.fontSize = '0.8rem';
         errorConditions.style.marginTop = '10px';

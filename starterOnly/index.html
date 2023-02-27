@@ -118,7 +118,6 @@
               <p class="text-label"> <br> A quel tournoi souhaitez-vous participer cette année ? <br></p>
               <div
                 class="formData">
-                <span id="errorLocation"></span>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -129,7 +128,7 @@
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
                   New York</label
-                >
+                ><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -140,7 +139,7 @@
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
                   San Francisco</label
-                >
+                ><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -151,7 +150,7 @@
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
                   Seattle</label
-                >
+                ><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -162,7 +161,7 @@
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
                   Chicago</label
-                >
+                ><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -173,7 +172,7 @@
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
                   Boston</label
-                >
+                ><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -185,6 +184,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+               <br> <span id="errorLocation"></span>
               </div>
 
               <div
@@ -219,7 +219,7 @@
           après l'envoi des infos -->
           <div id="confirm-modal">
             <div class="modal-body">
-              <p id="confirm-msg">
+              <p class="confirm-msg">
                 Merci ! Votre réservation a été reçue.
               </p>
               <button id="btn-closed">
