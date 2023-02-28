@@ -1,12 +1,13 @@
 
 // Fonction qui valide le champ "prénom"
 function validateFirstName() {
-    const errorFirstName = document.querySelector("#errorFirst");//message d'erreur si le champ 'prénom' n'est pas correctement rempli.
-    const firstName = document.querySelector("#first");//élément input pour rentrer son prénom.
+    const errorFirstName = document.querySelector("#errorFirst");//message d'erreur si le champ 'prénom' n'est pas correctement rempli. Récupère l'élément du DOM avec id #errorFirst. Stock la valeur dans errorFirstName
+    const firstName = document.querySelector("#first");//le champ input qui sera validé. récupère élément du DOM avec id #first et stock la valeur dans la variable firstName.
     if (firstName.value.trim().length >= 2) {//fonction vérifie s'il y a au moins 2 caractères et supprime les espaces avec methode trim(). 
         errorFirstName.style.display = 'none';//cache l'élément qui affiche le message d'erreur si la fonction retourne true.
         firstName.style.border = 'solid #279e7a 3px';//entoure l'élément d'une bordure verte.
         return true; //fonction retourne 'true' si la validation est réussi.
+
     } else {//si la validation échoue et le champ  ne comporte pas au moins 2 caractères afficher un message d'erreur.
         errorFirstName.style.display = "inline";
         errorFirstName.innerText = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";//affiche un message d'erreur si la fonction retourne 'false'.
@@ -83,25 +84,25 @@ function validateFirstName() {
 function validateQuantity() {
     const errorQuantity = document.querySelector("#errorQuantity");
     const quantity = document.querySelector("#quantity");
-    const value = parseInt(quantity.value);
-    if (value <= 99){
-        errorQuantity.style.display = 'none';
-        quantity.style.border = 'solid #279e7a 3px';
-        return true;
+    const value = parseInt(quantity.value);//récupère la valeur saisie dans le champ 'quantity' et stock la valeur dans la variable 'value'. La fonction parseInt() permet de convertir la valeur saisie en un nombre entier. 
+    if (value <= 99){//vérifie si la valeur saisie de 'value' est inférieur ou égale à 99.
+        errorQuantity.style.display = 'none';//masque le message d'erreurs (s'il était visible).
+        quantity.style.border = 'solid #279e7a 3px';//si validation return true applique une bordure verte pour indiquer que la saisie est valide.
+        return true;//renvoie 'true' si la validation est réussie
     }
     else{
-        errorQuantity.style.display = "inline";
+        errorQuantity.style.display = "inline";//afficher le message d'erreur si la validation échoue
         errorQuantity.innerText = "Une valeur numérique entre 0 et 99 doit etre saisie.";
         errorQuantity.style.color = 'red';
         errorQuantity.style.fontSize = '0.8rem';
         errorQuantity.style.marginTop = '10px';
-        quantity.style.border = 'solid red 2px';
-        return false;
+        quantity.style.border = 'solid red 2px';//applique une bordure rouge pour indiquer une erreur.
+        return false;//si la validation echoue, renvoie 'false' pour indiquer que la saisie est invalide.
     };
 }
 
 
-// Fonction qui valide le champ "villes de tournoi"
+// Fonction qui valide le champ du choix de "villes du tournoi"
 function validateLocation() {
       const errorLocation = document.querySelector("#errorLocation");
       const locationInputs = document.querySelectorAll('input[name="location"]');
