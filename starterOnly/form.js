@@ -63,9 +63,9 @@ function validateFirstName() {
   function validateBirthdate() {
     const errorBirthDate = document.querySelector("#errorBirthdate");
     const birthdate = document.querySelector("#birthdate");
-    const birthdateRegex = /^(19|20)\d{2}-(0\d|1[0-2])-([0-2]\d|3[0-1])$/;
+    const birthdateRegex = /^(19|20)\d{2}-(0\d|1[0-2])-([0-2]\d|3[0-1])$/;//fonction crée une expression régulière pour pour vérifier si la date est au bon format
 
-    if (birthdateRegex.test(birthdate.value)) {
+    if (birthdateRegex.test(birthdate.value)) {//methode test permet de vérifier si la valeur saisie dans le champ respecte le format
         errorBirthDate.style.display = 'none';
         birthdate.style.border = 'solid #279e7a 3px';
         return true;
@@ -105,45 +105,52 @@ function validateQuantity() {
 // Fonction qui valide le champ du choix de "villes du tournoi"
 function validateLocation() {
       const errorLocation = document.querySelector("#errorLocation");
-      const locationInputs = document.querySelectorAll('input[name="location"]');
-      let isChecked = false;
+      const locationInputs = document.querySelectorAll('input[name="location"]');//méthode querySelectorAll permet de récuperer tous les éléments de l'input qui ont un 'attribut' name et la valeur 'location'. Les élément sont stocké dans la varibale 'locationInputs'.
+      let isChecked = false;//variable isChecked iniatialisé à 'false'
       
-      for (const locationInput of locationInputs) {
-        if (locationInput.checked) {
-          isChecked = true;
-          break;
+
+      // for (let i = 0; i < locationInputs.length; i++) {
+      //   if (locationInputs[i].checked) {
+      //     isChecked = true;
+      //     break;
+      //   }
+      // }
+      for (const locationInput of locationInputs) {//boucle for-of permet de parcourir les éléments de la liste 'locationsInputs'. a chaque tour de boucle la variable 'locationInput' contient l'un des éléments de la liste
+        if (locationInput.checked) {//propriété 'checked' permet de vérifier si l'une des villes est coché
+          isChecked = true;//si une ville est coché la variable isChecked est mise à 'true'
+          break;//et la boucle s'arrete
         }
       }
-      if (isChecked) {
-        errorLocation.innerText = '';
-        return true;
-      } else {
-        errorLocation.style.display = "inline";
+      if (isChecked) {//instruction if-else permet de vérifier la valeur de la variable isChecked. Si isChecked est 'true' alors une ville a été sélectionné
+        errorLocation.style.display = 'none';//le message d'erreurLocation est caché
+        return true;//renvoie true
+      } else {//si isChecked est 'false' alors aucune ville n'a été sélectionné
+        errorLocation.style.display = "inline";//afficher un message d'erreur en affectant du texte à errorLocation
         errorLocation.innerText = 'Vous devez choisir une option. Veuillez sélectionner une ville.';
         errorLocation.style.color = 'red';
         errorLocation.style.fontSize = '0.8rem';
         errorLocation.style.marginTop = '10px';
         locationInputs.style.border = 'solid red 2px';
-        return false;
+        return false;//retourne 'false' pour indiquer une erreur de saisie
       };
     }
 
 
 
-// Fonction qui valide le champ "conditions d'utilisations"
+// Fonction qui valide le champ "conditions d'utilisations" checkbox
 function validateConditions(){
-    const errorConditions = document.querySelector("#errorConditions");
-    const conditions = document.querySelector("#checkbox1");
-    if (conditions.checked == true){
-        errorConditions.style.display = 'none';
-        return true;
+    const errorConditions = document.querySelector("#errorConditions");//permet d'afficher un message d'erreur si l'utilisateur n'a pas coché la case. 
+    const conditions = document.querySelector("#checkbox1");//une case à cocher qui permet à l'utilisateur d'accepter les conditions d'utilisation.
+    if (conditions.checked == true){//instruction if-else vérifie si la case à cocher a été coché avec la propriété 'checked'
+        errorConditions.style.display = 'none';//la case a été coché et donc le message d'erreur est masqué
+        return true;//la fonction renvoie la valeur 'true' pour indiquer que le champ est valide. 
     }else {
-        errorConditions.style.display = "inline";
+        errorConditions.style.display = "inline";//message d'erreur
         errorConditions.innerText = "Vous devez vérifier que vous acceptez les conditions d'utilisations.";
         errorConditions.style.color = 'red';
         errorConditions.style.fontSize = '0.8rem';
         errorConditions.style.marginTop = '10px';
-        return false;
+        return false;//la case n'a pas été coché et renvoie la valeur 'false'.
     }; 
 }
 
