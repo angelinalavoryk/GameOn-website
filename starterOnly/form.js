@@ -108,13 +108,6 @@ function validateLocation() {
       const locationInputs = document.querySelectorAll('input[name="location"]');//méthode querySelectorAll permet de récuperer tous les éléments de l'input qui ont un 'attribut' name et la valeur 'location'. Les élément sont stocké dans la varibale 'locationInputs'.
       let isChecked = false;//variable isChecked iniatialisé à 'false'
       
-
-      // for (let i = 0; i < locationInputs.length; i++) {
-      //   if (locationInputs[i].checked) {
-      //     isChecked = true;
-      //     break;
-      //   }
-      // }
       for (const locationInput of locationInputs) {//boucle for-of permet de parcourir les éléments de la liste 'locationsInputs'. a chaque tour de boucle la variable 'locationInput' contient l'un des éléments de la liste
         if (locationInput.checked) {//propriété 'checked' permet de vérifier si l'une des villes est coché
           isChecked = true;//si une ville est coché la variable isChecked est mise à 'true'
@@ -174,7 +167,7 @@ function validateConditions(){
       };
     }
 
-// Envoi du formulaire d'inscription avec le bouton "submit"
+// Validation des données du formulaire d'inscription avec le bouton "submit"
 const form = document.querySelector('form[name="reserve"]');//la méthode querySelector est appelé sur l'objet document qui représente le document HTML et récupère l'élément form avec attribut name et la valeur "réserve". L'élément de formulaire est stocké dans la variable "form".
 form.addEventListener('submit', function (e) {//le methode addEventListener ajoute un évenement à l'élément de forùulaire récupéré. L'évenement est décleché quand on click sur le bouton "submit" et donc la fonction anonyme est appelée. 
     e.preventDefault(); //empeche le comportement de l'évenement de soumission du formulaire et permet au reste du code de s'éxecuter.
