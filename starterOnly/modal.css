@@ -596,33 +596,6 @@ footer {
     top: 50px;
   }
 }
-
-@media screen and (min-width: 822px) and (max-width: 1200px) {
-  .main-navbar {
-    margin-top: 25px;
-    width: 100%;
-  }
-
-  .hero-headline {
-    font-size: 4rem;
-  }
-
-  .hero-text {
-    width: 110%;
-    font-size: 19px;
-  }
-
-  .btn-signup {
-    min-width: 160px;
-  }
-}
-
-@media screen and (min-width: 1201px) {
-  .hero-img img {
-    height: 100%;
-  }
-}
-
 /* Animation modal */
 @keyframes modalopen {
   from {
