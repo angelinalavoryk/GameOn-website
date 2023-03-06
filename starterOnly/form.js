@@ -42,7 +42,7 @@ function validateFirstName() {
   function validateEmail() {
     const errorEmail = document.querySelector("#errorEmail");
     const email = document.querySelector("#email");
-    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;//expression régulière pour vérifier que l'email saisie est valide.
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;//expression régulière pour vérifier que l'email saisie est valide.
 
     if (emailRegex.test(email.value)) {//methode test() vérifie si email.value la valeur du champ email correspond à 'emailRegex';
         errorEmail.style.display = 'none';//cache le message d'erreur en mettant la propriété 'display' de l'élément 'errorEmail' à 'none'.
@@ -63,7 +63,7 @@ function validateFirstName() {
   function validateBirthdate() {
     const errorBirthDate = document.querySelector("#errorBirthdate");
     const birthdate = document.querySelector("#birthdate");
-    const birthdateRegex = /^(19|20)\d{2}-(0\d|1[0-2])-([0-2]\d|3[0-1])$/;//fonction crée une expression régulière pour pour vérifier si la date est au bon format
+    const birthdateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;//fonction crée une expression régulière pour pour vérifier si la date est au bon format
 
     if (birthdateRegex.test(birthdate.value)) {//methode test permet de vérifier si la valeur saisie dans le champ respecte le format
         errorBirthDate.style.display = 'none';
@@ -168,10 +168,10 @@ function validateConditions(){
     }
 
 // Validation des données du formulaire d'inscription avec le bouton "submit"
-const form = document.querySelector('form[name="reserve"]');//la méthode querySelector est appelé sur l'objet document qui représente le document HTML et récupère l'élément form avec attribut name et la valeur "réserve". L'élément de formulaire est stocké dans la variable "form".
-form.addEventListener('submit', function (e) {//le methode addEventListener ajoute un évenement à l'élément de forùulaire récupéré. L'évenement est décleché quand on click sur le bouton "submit" et donc la fonction anonyme est appelée. 
+const form = document.querySelector('form[name="reserve"]'); //la méthode querySelector est appelé sur l'objet document qui représente le document HTML et récupère l'élément form avec attribut name et la valeur "réserve". L'élément de formulaire est stocké dans la variable "form".
+form.addEventListener('submit', function (e) {  //le methode addEventListener ajoute un évenement à l'élément de forùulaire récupéré. L'évenement est décleché quand on click sur le bouton "submit" et donc la fonction anonyme est appelée. 
     e.preventDefault(); //empeche le comportement de l'évenement de soumission du formulaire et permet au reste du code de s'éxecuter.
-    validate();//appelle la fonction 'validate' qui effectue une validation des données du formulaire.
+    validate(); //appelle la fonction 'validate' qui effectue une validation des données du formulaire.
   });
 
 
