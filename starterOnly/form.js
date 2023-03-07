@@ -42,11 +42,11 @@ function validateFirstName() {
   function validateEmail() {
     const errorEmail = document.querySelector("#errorEmail");
     const email = document.querySelector("#email");
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;                                                                        //expression régulière pour vérifier que l'email saisie est valide.
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-z]+\.[a-z]{2,}$/;//expression régulière pour vérifier que l'email saisie est valide.
 
-    if (emailRegex.test(email.value)) {                                                                                   //methode test() vérifie si email.value la valeur du champ email correspond à 'emailRegex';
-        errorEmail.style.display = 'none';                                                                              //cache le message d'erreur en mettant la propriété 'display' de l'élément 'errorEmail' à 'none'.
-        email.style.border = 'solid #279e7a 3px';                                                                       //ajoute bordure verte à l'élément 'email' en modifiant la propriété 'border'.
+    if (emailRegex.test(email.value)) { //methode test() vérifie si email.value la valeur du champ email correspond à 'emailRegex';
+        errorEmail.style.display = 'none';//cache le message d'erreur en mettant la propriété 'display' de l'élément 'errorEmail' à 'none'.
+        email.style.border = 'solid #279e7a 3px';//ajoute bordure verte à l'élément 'email' en modifiant la propriété 'border'.
         return true;
     } else {
         errorEmail.style.display = "inline";
@@ -177,7 +177,7 @@ form.addEventListener('submit', function (e) {  //le methode addEventListener aj
 
 
 
-const confirmationCloseBtn = document.querySelector("#btn-closed");                       //sélectionne élément du DOM avec son id #btn-closed. Bouton "fermer".
-document.querySelector("#btn-closed").addEventListener("click", closeModal);              //ajout de l'évenement sur le bouton "fermer" qui permet de fermer le message de confirmation d'inscription. 
+const confirmationCloseBtn = document.querySelector("#btn-closed");//sélectionne élément du DOM avec son id #btn-closed. Bouton "fermer".
+document.querySelector("#btn-closed").addEventListener("click", closeModal);//ajout de l'évenement sur le bouton "fermer" qui permet de fermer le message de confirmation d'inscription. 
 
 
