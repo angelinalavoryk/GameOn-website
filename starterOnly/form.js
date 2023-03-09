@@ -1,4 +1,3 @@
-
 // Fonction qui valide le champ "prénom"
 function validateFirstName() {
     const errorFirstName = document.querySelector("#errorFirst");//message d'erreur si le champ 'prénom' n'est pas correctement rempli. Récupère l'élément du DOM avec id #errorFirst. Stock la valeur dans errorFirstName
@@ -160,12 +159,22 @@ function validateConditions(){
       formValidate.push(validateQuantity());
       formValidate.push(validateConditions());
       formValidate.push(validateLocation());
-
+      
       if (!formValidate.includes(false)) {//vérifier avec la methode includes si le tableau ne contient pas la valeur false. 
-            form.style.display = 'none';//si pas de false, la fonction masque le formulaire
-            confirmationValidation.style.display = 'block';//et affiche message de confirmation d'inscriptions "confirmationValidation".
+        form.style.display = 'none';//si pas de false, la fonction masque le formulaire
+        confirmationValidation.style.display = 'block';//et affiche message de confirmation d'inscriptions "confirmationValidation".
       };
-    }
+      const confirmationCloseBtn = document.querySelector("#btn-closed");
+      confirmationCloseBtn.addEventListener("click", function() {
+        const confirmationValidation = document.querySelector("#confirm-modal");
+        const form = document.querySelector('form[name="reserve"]');
+        form.reset(); // réinitialise le formulaire
+        form.style.display = 'inline'; // affiche de nouveau le formulaire
+        confirmationValidation.style.display = 'none'; // cache le message de confirmation
+        document.querySelectorAll('.text-control').forEach(input => input.style.border = '1px solid #ccc'); // Enlève la bordure verte des champs de formulaire
+      });
+    };
+    
 
 // Validation des données du formulaire d'inscription avec le bouton "submit"
 const form = document.querySelector('form[name="reserve"]'); //la méthode querySelector est appelé sur l'objet document qui représente le document HTML et récupère l'élément form avec attribut name et la valeur "réserve". L'élément de formulaire est stocké dans la variable "form".
